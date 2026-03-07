@@ -1,0 +1,13 @@
+services:
+  budget:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - NUXT_DB_PATH=/app/data/budget.db
+      - NUXT_BETTER_AUTH_SECRET=${BETTER_AUTH_SECRET}
+      - NUXT_BETTER_AUTH_URL=${BETTER_AUTH_URL:-http://localhost:3000}
+      - NUXT_PUBLIC_BETTER_AUTH_URL=${BETTER_AUTH_URL:-http://localhost:3000}
+    restart: unless-stopped

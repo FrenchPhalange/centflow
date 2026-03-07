@@ -1,0 +1,42 @@
+{
+  "name": "centflow",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:seed": "tsx scripts/seed.ts",
+    "db:studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.17.0",
+    "@nuxt/ui": "^4.5.0",
+    "@vite-pwa/nuxt": "^1.1.1",
+    "better-auth": "^1.5.4",
+    "drizzle-orm": "^0.45.1",
+    "nuxt": "^4.3.1",
+    "resend": "^6.9.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "@parcel/watcher"
+    ],
+    "overrides": {
+      "serialize-javascript": ">=7.0.3",
+      "svgo": ">=4.0.1",
+      "tar": ">=7.5.10"
+    }
+  },
+  "packageManager": "pnpm@10.15.1",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.1",
+    "drizzle-kit": "^0.31.9",
+    "tailwindcss": "^4.2.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.2.5"
+  }
+}

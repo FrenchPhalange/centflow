@@ -1,0 +1,205 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@layer base {
+  :root {
+    --color-bg: #FAF7F2;
+    --color-card: #FFFFFF;
+    --color-border: #E8E0D4;
+    --color-text: #2C2416;
+    --color-text-muted: #8A7E6E;
+    --color-sage: #5B7C5E;
+    --color-sage-light: #E8F0E8;
+    --color-terracotta: #C45D4A;
+    --color-terracotta-light: #F5E0DC;
+    --color-orange: #D4943A;
+    --color-orange-light: #F5ECDC;
+    --color-slate: #5A7B9A;
+    --color-slate-light: #E0EAF2;
+    --shadow-xs: 0 1px 2px rgba(44, 36, 22, 0.05);
+    --shadow-sm: 0 1px 4px rgba(44, 36, 22, 0.07);
+    --shadow-md: 0 4px 16px rgba(44, 36, 22, 0.09);
+    --radius: 16px;
+    --radius-sm: 10px;
+    --radius-xs: 6px;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior-y: contain;
+  }
+
+  h1, h2, h3 {
+    font-family: 'DM Serif Display', serif;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'DM Serif Display', serif;
+  }
+
+  .card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .card-padded {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 1rem;
+  }
+
+  /* Safe area for iPhones */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  /* App max-width container */
+  .app-container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* Base button touch target */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    transition: background-color 0.15s ease, color 0.15s ease;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .btn-ghost:hover {
+    background-color: var(--color-border);
+    color: var(--color-text);
+  }
+
+  /* Pill button */
+  .pill-inactive {
+    background: var(--color-card);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+  }
+
+  .pill-inactive:hover {
+    background: var(--color-bg);
+  }
+
+  .pill-active {
+    background: var(--color-sage);
+    color: #fff;
+    border: 1px solid transparent;
+  }
+
+  /* Number input */
+  .amount-input {
+    width: 7rem;
+    text-align: right;
+    padding-right: 1.5rem;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.9375rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    color: var(--color-text);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .amount-input:focus {
+    border-color: var(--color-sage);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-sage) 15%, transparent);
+  }
+
+  /* Email input */
+  .text-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--color-border);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .text-input:focus {
+    border-color: var(--color-sage);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-sage) 15%, transparent);
+  }
+}
+
+/* Page transitions */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.25s ease;
+}
+
+.slide-enter-from {
+  transform: translateY(8px);
+  opacity: 0;
+}
+
+.slide-leave-to {
+  transform: translateY(-8px);
+  opacity: 0;
+}
