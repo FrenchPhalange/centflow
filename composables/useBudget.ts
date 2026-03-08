@@ -137,6 +137,15 @@ export function useBudget() {
     }
   }
 
+  async function applyRecurring(): Promise<{ applied: number; skipped: number }> {
+    const result = await $fetch<{ applied: number; skipped: number; total: number }>(
+      `/api/budget/${currentYear.value}/${currentMonth.value}/apply-recurring`,
+      { method: 'POST' },
+    )
+    await fetchMonth()
+    return result
+  }
+
   async function fetchCategoryEvolution(year?: number, month?: number) {
     const y = year ?? currentYear.value
     const m = month ?? currentMonth.value
@@ -181,6 +190,7 @@ export function useBudget() {
     updateEntry,
     deleteEntry,
     copyPrevious,
+    applyRecurring,
     fetchAnnual,
     fetchCategoryEvolution,
     setMonth,

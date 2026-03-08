@@ -33,6 +33,18 @@ export const verification = sqliteTable('verification', {
 })
 
 // App tables
+export const recurringCharges = sqliteTable('recurring_charges', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  userId: text('user_id').notNull().references(() => user.id),
+  type: text('type', { enum: ['revenu', 'depense'] }).notNull(),
+  category: text('category').notNull(),
+  label: text('label'),
+  amount: real('amount').notNull(),
+  isActive: integer('is_active', { mode: 'boolean' }).notNull().default(true),
+  createdAt: integer('created_at', { mode: 'timestamp' }).default(sql`(unixepoch())`),
+  updatedAt: integer('updated_at', { mode: 'timestamp' }).default(sql`(unixepoch())`),
+})
+
 export const budgetEntries = sqliteTable('budget_entries', {
   id: integer('id').primaryKey({ autoIncrement: true }),
   userId: text('user_id').notNull().references(() => user.id),

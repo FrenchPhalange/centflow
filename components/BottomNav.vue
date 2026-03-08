@@ -5,6 +5,7 @@ const tabs = [
   { to: '/', icon: 'i-lucide-pencil-line', label: 'Saisie' },
   { to: '/synthese', icon: 'i-lucide-pie-chart', label: 'Synthèse' },
   { to: '/annuel', icon: 'i-lucide-calendar-days', label: 'Annuel' },
+  { to: '/recurrences', icon: 'i-lucide-repeat', label: 'Récurrents' },
 ]
 
 function isActive(path: string) {

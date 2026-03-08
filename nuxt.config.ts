@@ -14,8 +14,18 @@ export default defineNuxtConfig({
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
         { name: 'theme-color', content: '#FAF7F2' },
+        { name: 'apple-mobile-web-app-title', content: 'Centflow' },
       ],
       link: [
+        {
+          rel: 'icon',
+          type: 'image/x-icon',
+          href: '/favicon.ico',
+        },
+        {
+          rel: 'apple-touch-icon',
+          href: '/apple-touch-icon.png',
+        },
         {
           rel: 'preconnect',
           href: 'https://fonts.googleapis.com',
@@ -80,6 +90,18 @@ export default defineNuxtConfig({
             cacheName: 'budget-api-cache',
             expiration: {
               maxEntries: 50,
+              maxAgeSeconds: 60 * 60 * 24 * 7,
+            },
+          },
+        },
+        {
+          urlPattern: /^\/api\/recurring\/.*$/,
+          handler: 'StaleWhileRevalidate',
+          method: 'GET',
+          options: {
+            cacheName: 'recurring-api-cache',
+            expiration: {
+              maxEntries: 10,
               maxAgeSeconds: 60 * 60 * 24 * 7,
             },
           },

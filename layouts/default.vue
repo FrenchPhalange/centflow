@@ -9,13 +9,11 @@ provide('registerRefresh', registerRefresh)
 <template>
   <div class="min-h-dvh flex flex-col bg-[var(--color-bg)]">
     <!-- Header -->
-    <header class="sticky top-0 z-50 bg-[var(--color-bg)]/95 backdrop-blur-md border-b border-[var(--color-border)] safe-top">
+    <header class="bg-[var(--color-bg)] border-b border-[var(--color-border)] safe-top">
       <div class="app-container flex items-center justify-between px-4 h-14">
         <!-- Logo + title -->
-        <div class="flex items-center gap-2.5">
-          <div class="w-7 h-7 rounded-lg bg-[var(--color-sage)] flex items-center justify-center shrink-0">
-            <UIcon name="i-lucide-wallet" class="text-white text-sm" />
-          </div>
+        <div class="flex items-center gap-2">
+          <img src="/logo-icon.png" alt="Centflow" class="w-8 h-8 shrink-0" />
           <span class="font-display text-[17px] text-[var(--color-text)] tracking-tight">Centflow</span>
         </div>
 

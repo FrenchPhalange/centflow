@@ -53,9 +53,7 @@ function reset() {
   <div class="w-full">
     <!-- Brand -->
     <div class="text-center mb-10">
-      <div class="w-14 h-14 rounded-2xl bg-[var(--color-sage)] flex items-center justify-center mx-auto mb-4 shadow-[var(--shadow-md)]">
-        <UIcon name="i-lucide-wallet" class="text-white text-2xl" />
-      </div>
+      <img src="/logo-icon.png" alt="Centflow" class="w-14 h-14 mx-auto mb-4" />
       <h1 class="font-display text-3xl text-[var(--color-text)] mb-1.5">Centflow</h1>
       <p class="text-sm text-[var(--color-text-muted)]">Gerez votre budget en famille</p>
     </div>
